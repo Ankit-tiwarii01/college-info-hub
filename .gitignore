@@ -1,0 +1,43 @@
+# Dependencies & builds
+node_modules/
+dist/
+dist-ssr/
+venv/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Secrets & env
+.env
+.env.*
+!.env.example
+!backend/.env.example
+CREDENTIALS.txt
+
+# Database, uploads, backups
+*.db
+*.db.bak
+*.bak
+backend/uploads/
+
+# Logs & generated
+logs/
+*.log
+lint_output.txt
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+
+# Old duplicate folder and documents
+frontend/
+~$*
+*.docx
+*.pptx
+written_report/
+
+backend/private_uploads/
+private_uploads/

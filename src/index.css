@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Light Luxury Palette */
+  --color-background: #fdfbf7;
+  --color-surface: #ffffff;
+
+  /* Gold Primary Palette */
+  --color-primary-50: #fbf7e6;
+  --color-primary-100: #f5ecc4;
+  --color-primary-200: #ebd994;
+  --color-primary-300: #dec05e;
+  --color-primary-400: #d4af37;
+  --color-primary-500: #b89228;
+  --color-primary-600: #9d751e;
+  --color-primary-700: #7d5818;
+  --color-primary-800: #68471a;
+  --color-primary-900: #583b1a;
+
+  /* Secondary & Text */
+  --color-secondary-500: #0f172a;
+  --color-secondary-900: #1e293b;
+  --color-text-main: #1a202c;
+  --color-text-muted: #64748b;
+
+  /* Fonts */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+
+  /* Animations */
+  --animate-fade-in: fadeIn 0.5s ease-out forwards;
+  --animate-slide-up: slideUp 0.5s ease-out forwards;
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-white/80 backdrop-blur-xl border border-black/5 shadow-sm;
+  }
+
+  .glass-btn {
+    background-color: #d4af371a;
+    color: #b89228;
+    border: 1px solid #d4af374d;
+    transition: all 0.3s ease;
+  }
+
+  .glass-btn:hover {
+    background-color: #d4af3733;
+  }
+
+  /* Custom scrollbar — used in StudentLayout nav and other scrollable panels */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #e2d4aa;
+    border-radius: 9999px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #d4af37;
+  }
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  background-color: #fdfbf7;
+  color: #1a202c;
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode Styles */
+html.dark body {
+  background-color: #0b0f19 !important;
+  color: #f1f5f9 !important;
+}
+
+html.dark .glass-panel,
+html.dark .bg-white,
+html.dark .bg-white\/80,
+html.dark .bg-white\/70,
+html.dark .bg-white\/60,
+html.dark .bg-white\/50 {
+  background-color: rgba(17, 24, 39, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #f8fafc !important;
+}
+
+html.dark .bg-slate-50,
+html.dark .bg-slate-50\/50,
+html.dark .bg-slate-50\/70,
+html.dark .bg-slate-100 {
+  background-color: rgba(30, 41, 59, 0.8) !important;
+}
+
+html.dark .text-slate-800,
+html.dark .text-slate-900,
+html.dark .text-slate-700 {
+  color: #f1f5f9 !important;
+}
+
+html.dark .text-slate-600,
+html.dark .text-slate-500 {
+  color: #cbd5e1 !important;
+}
+
+html.dark .border-slate-100,
+html.dark .border-slate-200,
+html.dark .border-white\/60 {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: rgba(15, 23, 42, 0.8) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #f8fafc !important;
+}
+
+/* Accent Color Variations */
+[data-accent="indigo"] {
+  --color-primary-500: #6366f1;
+  --color-primary-600: #4f46e5;
+  --color-primary-700: #4338ca;
+}
+
+[data-accent="emerald"] {
+  --color-primary-500: #10b981;
+  --color-primary-600: #059669;
+  --color-primary-700: #047857;
+}
+
+[data-accent="rose"] {
+  --color-primary-500: #f43f5e;
+  --color-primary-600: #e11d48;
+  --color-primary-700: #be123c;
+}
+
+[data-accent="sky"] {
+  --color-primary-500: #0ea5e9;
+  --color-primary-600: #0284c7;
+  --color-primary-700: #0369a1;
+}
+
+[data-accent="amber"] {
+  --color-primary-500: #b89228;
+  --color-primary-600: #9d751e;
+  --color-primary-700: #7d5818;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+main {
+  @apply animate-fade-in;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #d4af37; }
+::selection { background: #fef3c7; color: #78350f; }
